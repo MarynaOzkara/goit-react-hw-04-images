@@ -11,7 +11,7 @@ const handleChange = ({currentTarget: {query}}) => setQuery(query)
 const handleSubmit = (e) => {
         e.preventDefault();
         
-        const searchQuery = query.trim();
+        const searchQuery = query;
         if(!searchQuery){
           return alert(`Type your query to start serch images!`);
         }
