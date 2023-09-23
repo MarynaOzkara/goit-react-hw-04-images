@@ -1,5 +1,5 @@
 import { Component } from "react";
-import Searchbar from './Searchbar/Searchbar';
+import Searchbar from "./Searchbar/Searchbar";
 import ImageGallery from './ImageGallery/ImageGallery';
 import Button from "./Button/Button";
 import {getImages} from '../api/pixabay-api';
@@ -99,7 +99,7 @@ render() {
  console.log(totalPages);
   return (
     <>
-    <Searchbar createSearchQuery={this.createSearchQuery}/>
+    <Searchbar onSubmit={this.createSearchQuery}/>
     {images && <ImageGallery images={images} openModal={this.openModal}/>}
     {isLoading && <Loader/>}
     {page > 0 && totalPages !== page && <Button loadMoreImages={this.loadMoreImages}/>}
