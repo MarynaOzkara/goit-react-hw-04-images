@@ -99,7 +99,7 @@ render() {
  console.log(totalPages);
   return (
     <>
-    <Searchbar onSubmit={this.createSearchQuery}/>
+    <Searchbar createSearchQuery={this.createSearchQuery}/>
     {images && <ImageGallery images={images} openModal={this.openModal}/>}
     {isLoading && <Loader/>}
     {page > 0 && totalPages !== page && <Button loadMoreImages={this.loadMoreImages}/>}

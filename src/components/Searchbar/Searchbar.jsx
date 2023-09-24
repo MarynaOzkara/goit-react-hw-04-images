@@ -2,23 +2,23 @@ import { useState } from "react";
 import css from './Searchbar.module.css';
 import { BiSearchAlt } from 'react-icons/bi';
 
-const Searchbar = ({onSubmit}) => {
+const Searchbar = ({createSearchQuery}) => {
   const [query, setQuery] = useState('');
 
-const handleChange = ({currentTarget: {query}}) => setQuery(query)
+const handleChange = ({target: {value}}) => {
+  
+  setQuery(value)}
         
 
 const handleSubmit = (e) => {
         e.preventDefault();
-        
         const searchQuery = query.trim();
+        console.log(searchQuery);
+        
         if(!searchQuery){
           return alert(`Type your query to start serch images!`);
         }
-        onSubmit(searchQuery);
-        setQuery(query);
-        // console.log(searchQuery);
-        // e.target.reset();
+        createSearchQuery(searchQuery);
       }
   return (
     <header className={css.header}>
