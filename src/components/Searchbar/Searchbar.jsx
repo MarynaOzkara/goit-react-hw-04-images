@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import css from './Searchbar.module.css';
 import { BiSearchAlt } from 'react-icons/bi';
 
@@ -15,7 +17,7 @@ const handleSubmit = (e) => {
         
         const searchQuery = query.trim();
         if(!searchQuery){
-          return alert(`Type your query to start serch images!`);
+          return toast.error(`Type your query to start serch images!`);
         }
         createSearchQuery(searchQuery);
       }

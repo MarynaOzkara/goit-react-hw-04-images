@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Searchbar from "./Searchbar/Searchbar";
 import ImageGallery from './ImageGallery/ImageGallery';
 import Button from "./Button/Button";
@@ -46,7 +48,7 @@ useEffect(() =>{
        setIsLoading(true);
        const {hits, totalHits} = await getImages(query, page);
          if(!totalHits){
-                  alert ('We didn find any matches! Try to type another query')
+          toast.error('We didn find any matches! Try to type another query')
                   return;}
        const imagesArray = hits.map(hit => ({
                   id: hit.id,
@@ -61,7 +63,7 @@ useEffect(() =>{
       //  console.log(totalHits);
     } catch (error) {
          console.log(error.message);
-         alert ('Sorry, something went wrong! Try again later!')
+         toast.error('Sorry, something went wrong! Try again later!')
     } finally {
       setIsLoading(false);
     }
@@ -81,7 +83,7 @@ useEffect(() =>{
      
      {showModal && <Modal onClose={toggleModal} image={currrentImage} tags={currentTags}/>}
     
-     
+     <ToastContainer />
   </>
   )
 }
